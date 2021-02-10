@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      JavaScript 6th Edition
+      Chapter 3
+      Hands-on Project 3-4
+
+      Author: Jorge Suarez
+      Date:   2/9/21
+
+      Filename: index.htm
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Hands-on Project 3-4</title>
+   <link rel="stylesheet" href="styles.css" />
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+         Hands-on Project 3-4
+      </h1>
+   </header>
+
+   <article>
+      <div id="results">
+          <ul>
+             <li id="item1"></li>
+             <li id="item2"></li>
+             <li id="item3"></li>
+             <li id="item4"></li>
+             <li id="item5"></li>
+          </ul>
+          <p id="resultsExpl"></p>
+      </div>
+      <form>
+          <fieldset>
+            <label for="toolBox" id="placeLabel">
+              Type the name of a tool, then click Submit:
+            </label>
+            <input type="text" id="toolBox" />
+          </fieldset>
+          <fieldset>
+            <button type="button" id="button">Submit</button>
+          </fieldset>
+      </form>
+   </article>
+   <script>
+   //declaring global variables
+    var i = 1;
+    var listitem = "";
+      //function definition
+      function processInput() {
+        //checking the value of the variable
+	if (i <= 5) {
+	//setting value of the variable 
+	listitem = "item"+i;
+	    //attaching 
+	    document.getElementById(listitem).innerHTML=document.getElementById("toolBox").value;
+		//setting textbox
+		document.getElementById("toolBox").value="";
+		   //if value of i ==5 then
+		   if(i==5)
+		      { //displyaing messsag to the user
+		      document.getElementById("resultsExpl").innerHTML="Thanks for your suggestions.";
+		}
+	i=i+1;//increment value of i by 1
+	}
+	}
+           //attaching event listener to the button element
+           document.getElementById("button").addEventListener("click",processInput);
+  </script>
+</body>
+</html>
